@@ -20,7 +20,7 @@ import javax.annotation.Generated;
  */
 
 @JsonTypeName("ApiResponse")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-26T18:26:27.111066Z[Etc/UTC]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-28T13:56:55.849538Z[Etc/UTC]")
 public class ModelApiResponse {
 
   private Integer code;

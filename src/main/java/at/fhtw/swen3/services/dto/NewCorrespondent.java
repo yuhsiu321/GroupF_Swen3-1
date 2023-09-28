@@ -1,32 +1,24 @@
-package at.fhtw.swkom.paperless.services.dto;
+package at.fhtw.swen3.services.dto;
 
-import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
+
+import java.time.OffsetDateTime;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.time.OffsetDateTime;
+import org.springframework.format.annotation.DateTimeFormat;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
-import java.util.*;
 import jakarta.annotation.Generated;
 
 /**
- * DocumentType
+ * NewCorrespondent
  */
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-24T15:57:47.130875Z[Etc/UTC]")
-public class DocumentType {
-
-  private Long id;
-
-  private JsonNullable<String> slug = JsonNullable.<String>undefined();
+public class NewCorrespondent {
 
   private JsonNullable<String> name = JsonNullable.<String>undefined();
 
@@ -38,47 +30,10 @@ public class DocumentType {
 
   private Long documentCount;
 
-  public DocumentType id(Long id) {
-    this.id = id;
-    return this;
-  }
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+  private OffsetDateTime lastCorrespondence;
 
-  /**
-   * Get id
-   * @return id
-  */
-  
-  @Schema(name = "id", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("id")
-  public Long getId() {
-    return id;
-  }
-
-  public void setId(Long id) {
-    this.id = id;
-  }
-
-  public DocumentType slug(String slug) {
-    this.slug = JsonNullable.of(slug);
-    return this;
-  }
-
-  /**
-   * Get slug
-   * @return slug
-  */
-  
-  @Schema(name = "slug", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("slug")
-  public JsonNullable<String> getSlug() {
-    return slug;
-  }
-
-  public void setSlug(JsonNullable<String> slug) {
-    this.slug = slug;
-  }
-
-  public DocumentType name(String name) {
+  public NewCorrespondent name(String name) {
     this.name = JsonNullable.of(name);
     return this;
   }
@@ -98,7 +53,7 @@ public class DocumentType {
     this.name = name;
   }
 
-  public DocumentType match(String match) {
+  public NewCorrespondent match(String match) {
     this.match = JsonNullable.of(match);
     return this;
   }
@@ -118,7 +73,7 @@ public class DocumentType {
     this.match = match;
   }
 
-  public DocumentType matchingAlgorithm(Long matchingAlgorithm) {
+  public NewCorrespondent matchingAlgorithm(Long matchingAlgorithm) {
     this.matchingAlgorithm = matchingAlgorithm;
     return this;
   }
@@ -138,7 +93,7 @@ public class DocumentType {
     this.matchingAlgorithm = matchingAlgorithm;
   }
 
-  public DocumentType isInsensitive(Boolean isInsensitive) {
+  public NewCorrespondent isInsensitive(Boolean isInsensitive) {
     this.isInsensitive = isInsensitive;
     return this;
   }
@@ -158,7 +113,7 @@ public class DocumentType {
     this.isInsensitive = isInsensitive;
   }
 
-  public DocumentType documentCount(Long documentCount) {
+  public NewCorrespondent documentCount(Long documentCount) {
     this.documentCount = documentCount;
     return this;
   }
@@ -178,6 +133,26 @@ public class DocumentType {
     this.documentCount = documentCount;
   }
 
+  public NewCorrespondent lastCorrespondence(OffsetDateTime lastCorrespondence) {
+    this.lastCorrespondence = lastCorrespondence;
+    return this;
+  }
+
+  /**
+   * Get lastCorrespondence
+   * @return lastCorrespondence
+  */
+  @Valid 
+  @Schema(name = "last_correspondence", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("last_correspondence")
+  public OffsetDateTime getLastCorrespondence() {
+    return lastCorrespondence;
+  }
+
+  public void setLastCorrespondence(OffsetDateTime lastCorrespondence) {
+    this.lastCorrespondence = lastCorrespondence;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -186,14 +161,13 @@ public class DocumentType {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DocumentType documentType = (DocumentType) o;
-    return Objects.equals(this.id, documentType.id) &&
-        equalsNullable(this.slug, documentType.slug) &&
-        equalsNullable(this.name, documentType.name) &&
-        equalsNullable(this.match, documentType.match) &&
-        Objects.equals(this.matchingAlgorithm, documentType.matchingAlgorithm) &&
-        Objects.equals(this.isInsensitive, documentType.isInsensitive) &&
-        Objects.equals(this.documentCount, documentType.documentCount);
+    NewCorrespondent newCorrespondent = (NewCorrespondent) o;
+    return equalsNullable(this.name, newCorrespondent.name) &&
+        equalsNullable(this.match, newCorrespondent.match) &&
+        Objects.equals(this.matchingAlgorithm, newCorrespondent.matchingAlgorithm) &&
+        Objects.equals(this.isInsensitive, newCorrespondent.isInsensitive) &&
+        Objects.equals(this.documentCount, newCorrespondent.documentCount) &&
+        Objects.equals(this.lastCorrespondence, newCorrespondent.lastCorrespondence);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -202,7 +176,7 @@ public class DocumentType {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, hashCodeNullable(slug), hashCodeNullable(name), hashCodeNullable(match), matchingAlgorithm, isInsensitive, documentCount);
+    return Objects.hash(hashCodeNullable(name), hashCodeNullable(match), matchingAlgorithm, isInsensitive, documentCount, lastCorrespondence);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -215,14 +189,13 @@ public class DocumentType {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DocumentType {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
+    sb.append("class NewCorrespondent {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    match: ").append(toIndentedString(match)).append("\n");
     sb.append("    matchingAlgorithm: ").append(toIndentedString(matchingAlgorithm)).append("\n");
     sb.append("    isInsensitive: ").append(toIndentedString(isInsensitive)).append("\n");
     sb.append("    documentCount: ").append(toIndentedString(documentCount)).append("\n");
+    sb.append("    lastCorrespondence: ").append(toIndentedString(lastCorrespondence)).append("\n");
     sb.append("}");
     return sb.toString();
   }

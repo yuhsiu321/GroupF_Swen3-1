@@ -1,4 +1,4 @@
-package at.fhtw.swkom.paperless.services;
+package at.fhtw.swen3.services;
 
 import com.fasterxml.jackson.databind.util.StdDateFormat;
 

@@ -1,4 +1,4 @@
-package at.fhtw.swkom.paperless.config;
+package at.fhtw.swen3.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
